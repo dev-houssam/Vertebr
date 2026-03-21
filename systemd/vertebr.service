@@ -1,0 +1,33 @@
+[Unit]
+Description=Vertebr System Configuration Daemon
+Documentation=https://github.com/houssam/vertebr
+After=network.target dbus.service bluetooth.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/vertebr-daemon
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vertebr
+
+# Variables d'environnement
+Environment=VERTEBR_CONFIG=/etc/vertebr/routes.toml
+Environment=VERTEBR_MODULES=/usr/lib/vertebr/modules
+Environment=VERTEBR_SOCKET=/tmp/vertebr.sock
+
+# CAPABILITIES accordées au daemon (moindre privilège)
+AmbientCapabilities=CAP_NET_ADMIN CAP_SYS_ADMIN CAP_SYS_BOOT CAP_DAC_OVERRIDE CAP_SETFCAP
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_SYS_ADMIN CAP_SYS_BOOT CAP_DAC_OVERRIDE CAP_SETFCAP
+
+# Sécurité
+NoNewPrivileges=no
+ProtectSystem=partial
+ProtectHome=no
+
+[Install]
+WantedBy=multi-user.target

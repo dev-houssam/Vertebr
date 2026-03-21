@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    "daemon",
+    "modules/wifi_module",
+    "modules/bluetooth_module",
+    "modules/caps_module",
+    "modules/theme_module",
+    "modules/audio_module",
+    "modules/display_module",
+    "modules/power_module",
+    "modules/system_module",
+]
+resolver = "2"

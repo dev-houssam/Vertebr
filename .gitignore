@@ -1,0 +1,304 @@
+# ============================================
+# Vertebr - Git Ignore File
+# Projet : Panneau de configuration système moderne pour Pop!_OS
+# ============================================
+
+# -------------------------------
+# Rust / Cargo (Backend)
+# -------------------------------
+# Dossiers de compilation
+/target/
+**/target/
+target/
+*/target/
+
+# Fichiers générés par Cargo
+Cargo.lock
+**/Cargo.lock
+
+# Fichiers de backup Rust
+*.rs.bk
+*.rlib
+*.rmeta
+
+# -------------------------------
+# Node.js / Frontend
+# -------------------------------
+# Dépendances
+node_modules/
+**/node_modules/
+frontend/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Fichiers de build frontend
+frontend/dist/
+frontend/.vite/
+frontend/.cache/
+
+# Fichiers de configuration locaux
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# -------------------------------
+# Electron
+# -------------------------------
+# Build Electron
+out/
+dist-electron/
+frontend/out/
+frontend/dist-electron/
+
+# -------------------------------
+# Fichiers système et OS
+# -------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.nfs*
+.swp
+.swo
+.*.swp
+*.swp
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# -------------------------------
+# IDE / Éditeurs
+# -------------------------------
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA / WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------------
+# Fichiers de logs et diagnostics
+# -------------------------------
+# Logs du daemon
+*.log
+diagnostic/*.log
+diagnostic/*.log.*
+diagnostic/failed/
+diagnostic/succeded/
+
+# Journaux système
+journalctl-*.log
+vertebr-*.log
+
+# -------------------------------
+# Fichiers temporaires
+# -------------------------------
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Dossiers temporaires
+tmp/
+temp/
+.tmp/
+.temp/
+
+# -------------------------------
+# Modules compilés (.so)
+# -------------------------------
+# Ne pas versionner les bibliothèques compilées
+*.so
+*.dylib
+*.dll
+target/release/*.so
+target/debug/*.so
+**/*.so
+
+# Mais garder les sources
+!modules/*/src/
+!modules/*/Cargo.toml
+
+# -------------------------------
+# Binaires compilés
+# -------------------------------
+vertebr-daemon
+vertebr-frontend
+vertebr
+*.exe
+*.exe~
+*.dll
+*.so.*
+*.dylib
+
+# -------------------------------
+# Configuration locale
+# -------------------------------
+# Configuration utilisateur (ne pas versionner)
+config/local.toml
+config/*.local.toml
+/etc/vertebr/
+/usr/local/etc/vertebr/
+
+# Routes personnalisées locales
+routes.local.toml
+*.local.toml
+
+# -------------------------------
+# Captures d'écran (optionnel)
+# -------------------------------
+# Si vous voulez garder les captures dans le repo, commentez cette section
+# vertebre_screeshoot/*.png
+# !vertebre_screeshoot/README.md
+
+# -------------------------------
+# Fichiers de test et coverage
+# -------------------------------
+coverage/
+*.coverage
+*.lcov
+*.gcov
+*.gcda
+*.gcno
+
+# -------------------------------
+# Archives et packages
+# -------------------------------
+*.zip
+*.tar.gz
+*.tgz
+*.deb
+*.rpm
+*.pkg
+*.dmg
+
+# -------------------------------
+# Fichiers spécifiques au projet
+# -------------------------------
+# Scripts temporaires (garder les fixes mais pas leurs logs)
+correctif/*.log
+correctif/*.bak
+correctif/*.tmp
+
+# Fichiers de diagnostic temporaires
+diagnostic/*.tmp
+diagnostic/temp/
+
+# Frontend bug temporaire (si c'est un dossier de debug)
+frontend/bug/
+frontend/bug/*.js
+!frontend/bug/README.md
+
+# XDG Runtime (ne pas versionner)
+XDG_RUNTIME_DIR=*/
+*/XDG_RUNTIME_DIR=*/
+
+# -------------------------------
+# Fichiers de dépendances spécifiques
+# -------------------------------
+# Lock files (choisissez selon votre politique)
+# package-lock.json - à commenter si vous versionnez les lock files
+# yarn.lock
+# pnpm-lock.yaml
+
+# -------------------------------
+# Secrets et clés
+# -------------------------------
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+secrets/
+.credentials
+.env
+.env.*
+!.env.example
+
+# -------------------------------
+# Fichiers de backup du projet
+# -------------------------------
+*.backup
+vertebr-*.backup
+backup_*
+
+# -------------------------------
+# Documentation générée
+# -------------------------------
+docs/_build/
+docs/api/
+docs/generated/
+*.pdf
+*.epub
+
+# -------------------------------
+# Docker (si utilisé)
+# -------------------------------
+docker/
+*.dockerignore
+Dockerfile.*
+!.dockerignore
+
+# -------------------------------
+# Scripts de correction (garder mais pas leurs exécutions)
+# -------------------------------
+correctif/*.sh.bak
+correctif/*.sh.old
+*.sh~
+
+# -------------------------------
+# Modules créés par le générateur (ne pas versionner)
+# -------------------------------
+# Les modules générés sont des archives séparées
+*_module_*.zip
+*_backend/
+*_frontend/
+vertebr_module_*/
+
+# -------------------------------
+# Fichiers spécifiques à System76/Pop!_OS
+# -------------------------------
+.pop_os
+.pop-os
+*.pop_os

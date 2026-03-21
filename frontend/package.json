@@ -1,0 +1,24 @@
+{
+  "name": "vertebr-frontend",
+  "version": "1.0.0",
+  "description": "Vertebr Settings UI — HarmonyOS Style for Pop!_OS",
+  "author": "Houssam",
+  "license": "MIT",
+  "scripts": {
+    "dev":   "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue":        "^3.4.0",
+    "pinia":      "^2.1.0",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite":               "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

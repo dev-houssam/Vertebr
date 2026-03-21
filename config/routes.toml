@@ -1,0 +1,282 @@
+# ============================================================
+# VERTEBR — routes.toml
+# Configuration centrale des routes
+# Auteur : Houssam | Licence : MIT
+#
+# Format :
+#   [[route]]
+#   path       = "module:action"    # Identifiant unique
+#   module     = "module_name.so"   # Fichier dans /usr/lib/vertebr/modules/
+#   handler    = "function_name"    # Fonction C exportée par le module
+#   permission = "user|sudo|caps"   # Niveau de permission
+#   required_caps = [...]           # Uniquement pour permission = "caps"
+# ============================================================
+
+# ── Wi-Fi ───────────────────────────────────────────────────
+
+[[route]]
+path       = "wifi:list"
+module     = "libwifi_module.so"
+handler    = "list_networks"
+permission = "user"
+
+[[route]]
+path       = "wifi:status"
+module     = "libwifi_module.so"
+handler    = "wifi_status"
+permission = "user"
+
+[[route]]
+path       = "wifi:connect"
+module     = "libwifi_module.so"
+handler    = "connect_network"
+permission = "user"
+
+[[route]]
+path       = "wifi:disconnect"
+module     = "libwifi_module.so"
+handler    = "disconnect_wifi"
+permission = "user"
+
+[[route]]
+path       = "wifi:enabled"
+module     = "libwifi_module.so"
+handler    = "set_wifi_enabled"
+permission = "user"
+
+[[route]]
+path       = "wifi:airplane"
+module     = "libwifi_module.so"
+handler    = "airplane_mode"
+permission = "user"
+
+[[route]]
+path       = "wifi:forget"
+module     = "libwifi_module.so"
+handler    = "forget_network"
+permission = "user"
+
+# ── Bluetooth ───────────────────────────────────────────────
+
+[[route]]
+path       = "bluetooth:status"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_status"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:list"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_list"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:power"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_power"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:connect"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_connect"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:disconnect"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_disconnect"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:pair"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_pair"
+permission = "user"
+
+[[route]]
+path       = "bluetooth:remove"
+module     = "libbluetooth_module.so"
+handler    = "bluetooth_remove"
+permission = "user"
+
+# ── Audio ────────────────────────────────────────────────────
+
+[[route]]
+path       = "audio:sinks"
+module     = "libaudio_module.so"
+handler    = "audio_list_sinks"
+permission = "user"
+
+[[route]]
+path       = "audio:sources"
+module     = "libaudio_module.so"
+handler    = "audio_list_sources"
+permission = "user"
+
+[[route]]
+path       = "audio:volume"
+module     = "libaudio_module.so"
+handler    = "audio_set_volume"
+permission = "user"
+
+[[route]]
+path       = "audio:mute"
+module     = "libaudio_module.so"
+handler    = "audio_set_mute"
+permission = "user"
+
+[[route]]
+path       = "audio:default"
+module     = "libaudio_module.so"
+handler    = "audio_set_default"
+permission = "user"
+
+# ── Affichage ────────────────────────────────────────────────
+
+[[route]]
+path       = "display:list"
+module     = "libdisplay_module.so"
+handler    = "display_list_fn"
+permission = "user"
+
+[[route]]
+path       = "display:mode"
+module     = "libdisplay_module.so"
+handler    = "display_set_mode_fn"
+permission = "user"
+
+[[route]]
+path       = "display:rotation"
+module     = "libdisplay_module.so"
+handler    = "display_set_rotation_fn"
+permission = "user"
+
+# ── Alimentation ─────────────────────────────────────────────
+
+[[route]]
+path       = "power:status"
+module     = "libpower_module.so"
+handler    = "power_status_fn"
+permission = "user"
+
+[[route]]
+path       = "power:profile"
+module     = "libpower_module.so"
+handler    = "power_set_profile"
+permission = "user"
+
+[[route]]
+path       = "power:reboot"
+module     = "libpower_module.so"
+handler    = "power_reboot_fn"
+permission = "sudo"
+
+[[route]]
+path       = "power:shutdown"
+module     = "libpower_module.so"
+handler    = "power_shutdown_fn"
+permission = "sudo"
+
+[[route]]
+path       = "power:suspend"
+module     = "libpower_module.so"
+handler    = "power_suspend_fn"
+permission = "user"
+
+# ── Thème ────────────────────────────────────────────────────
+
+[[route]]
+path       = "theme:get"
+module     = "libtheme_module.so"
+handler    = "get_system_theme"
+permission = "user"
+
+[[route]]
+path       = "theme:set"
+module     = "libtheme_module.so"
+handler    = "set_system_theme"
+permission = "user"
+
+[[route]]
+path       = "theme:list"
+module     = "libtheme_module.so"
+handler    = "list_gtk_themes"
+permission = "user"
+
+# ── Système ──────────────────────────────────────────────────
+
+[[route]]
+path       = "system:info"
+module     = "libsystem_module.so"
+handler    = "system_info_fn"
+permission = "user"
+
+[[route]]
+path       = "system:timezone"
+module     = "libsystem_module.so"
+handler    = "system_timezone_info"
+permission = "user"
+
+[[route]]
+path       = "system:timezones"
+module     = "libsystem_module.so"
+handler    = "system_timezones_list"
+permission = "user"
+
+[[route]]
+path       = "system:user"
+module     = "libsystem_module.so"
+handler    = "system_current_user"
+permission = "user"
+
+[[route]]
+path       = "system:set_hostname"
+module     = "libsystem_module.so"
+handler    = "system_set_hostname_fn"
+permission = "sudo"
+
+[[route]]
+path       = "system:set_timezone"
+module     = "libsystem_module.so"
+handler    = "system_set_timezone_fn"
+permission = "sudo"
+
+[[route]]
+path       = "system:set_ntp"
+module     = "libsystem_module.so"
+handler    = "system_set_ntp_fn"
+permission = "sudo"
+
+[[route]]
+path       = "system:set_locale"
+module     = "libsystem_module.so"
+handler    = "system_set_locale_fn"
+permission = "sudo"
+
+
+[[route]]
+path       = "caps:list"
+module     = "libcaps_module.so"
+handler    = "list_capabilities"
+permission = "user"
+
+[[route]]
+path       = "caps:get"
+module     = "libcaps_module.so"
+handler    = "get_binary_caps_fn"
+permission = "user"
+
+[[route]]
+path          = "caps:grant"
+module        = "libcaps_module.so"
+handler       = "grant_capability"
+permission    = "caps"
+required_caps = ["CAP_SYS_ADMIN", "CAP_SETFCAP"]
+
+[[route]]
+path          = "caps:revoke"
+module        = "libcaps_module.so"
+handler       = "revoke_capability"
+permission    = "caps"
+required_caps = ["CAP_SYS_ADMIN", "CAP_SETFCAP"]
